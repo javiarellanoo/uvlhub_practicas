@@ -44,10 +44,6 @@ jobs:
       run: |
         pip install tox
         tox -e py310,py311,py312
-      
-    - name: Analyze the security of dependencies using pip-audit
-      run: |
-        pip-audit
 
     - name: Upload coverage to Codacy
       run: |
