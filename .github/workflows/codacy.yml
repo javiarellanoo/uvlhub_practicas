@@ -37,6 +37,19 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Check for updates in the dependencies
+      run: pip list --outdated
+
+    - name: Check compatibility with Python 3.10, 3.11 and 3.12
+      run: |
+        pip install tox
+        tox -e py310,py311,py312
+      
+    - name: Analyze the security of dependencies using pip-audit
+      run: |
+        pip install pip-audit
+        pip-audit
+
     - name: Upload coverage to Codacy
       run: |
         pip install codacy-coverage
