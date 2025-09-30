@@ -47,7 +47,6 @@ jobs:
       
     - name: Analyze the security of dependencies using pip-audit
       run: |
-        pip install pip-audit
         pip-audit
 
     - name: Upload coverage to Codacy
